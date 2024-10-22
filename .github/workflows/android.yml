@@ -25,9 +25,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Package File
-      run: zip -r 
+      run: zip -r apks.zip app/build/outputs/apk
     - uses: actions/upload-artifact@v4
       with:
         name: output
         path: |
-        
+             apks.zip
