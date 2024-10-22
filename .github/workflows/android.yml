@@ -13,17 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 23
+    - name: set up JDK 21
       uses: actions/setup-java@v4
       with:
-        java-version: '23'
+        java-version: '21'
         distribution: 'temurin'
         cache: gradle
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew :app:bundleRelease
+      run: ./gradlew build
     - name: Package File
       run: zip -r apks.zip app/build/outputs/apk
     - uses: actions/upload-artifact@v4
